@@ -1,0 +1,4 @@
+SELECT * FROM `towary` WHERE `promocja`=1
+SELECT cena FROM `towary` WHERE nazwa LIKE 'Cienkopis'
+SELECT * FROM towary, dostawcy WHERE dostawcy.id=towary.idDostawcy ORDER BY cena  DESC
+ALTER TABLE dostawcy ADD e_mail text
