@@ -11,6 +11,7 @@
   </div>
   <div class="lewy">
     <h3>Promocja 15% obejmuje artykuly:</h3>
+    <ul>
     <?php 
       $con=mysqli_connect("localhost","root","","sklep");
         mysqli_query($con, "SET CHARSET utf8");
@@ -20,12 +21,13 @@
            $i=1;
            while($row=mysqli_fetch_array($result))
            {
-            echo "<ul><li>".$row['nazwa']."</li></ul>";
+            echo "<li>".$row['nazwa']."</<li>";
             $i++;
            }
          }
       mysqli_close($con);
     ?>
+    </ul>
   </div>
   <div class="srodkowy">
     <h3>Cena wybranego artykulu w promocji</h3>
@@ -49,7 +51,7 @@
     <h4>Autor strony 11223344555</h4>
   </div>
 <!-- //скрипты не сделаны и не подсоеденены -->
-<!-- <?php
+<?php
 $con=mysqli_connect("localhost","root","","sklep");
   if (mysqli_connect_errno()) {
       echo "FALSE".mysqli_error();
@@ -57,6 +59,6 @@ $con=mysqli_connect("localhost","root","","sklep");
     echo ("SELECT database_id");
   }
 mysqli_close($con);
-?> -->
+?>
 </body>
 </html>
