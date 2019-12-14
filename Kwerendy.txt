@@ -2,3 +2,18 @@ SELECT * FROM `towary` WHERE `promocja`=1
 SELECT cena FROM `towary` WHERE nazwa LIKE 'Cienkopis'
 SELECT * FROM towary, dostawcy WHERE dostawcy.id=towary.idDostawcy ORDER BY cena  DESC
 ALTER TABLE dostawcy ADD e_mail text
+jan
+SELECT * FROM `towary`
+select nazwa from dostawcy
+SELECT * FROM `towary`
+select coun(*) from towary group by idDostawcy;
+select count(*) from towary group by idDostawcy
+SELECT * FROM `towary`
+select coun(*),idDostawcy from towary group by idDostawcy;
+select count(*) from towary group by idDostawcy
+select count(*),iddostawcy from towary group by idDostawcy
+select count(*),iddostawcy from towary group by idDostawcy left outer join towary.idDostawcy=dostawcy.id;
+select count(*),iddostawcy from towary left outer join towary.idDostawcy=dostawcy.id group by idDostawcy;
+select count(*),iddostawcy from towary left outer join dostawcy on towary.idDostawcy=dostawcy.id group by idDostawcy
+select count(*),iddostawcy,dostawcy.nazwa from towary left outer join dostawcy on towary.idDostawcy=dostawcy.id group by idDostawcy
+select count(*) as ilosc,dostawcy.nazwa from towary left outer join dostawcy on towary.idDostawcy=dostawcy.id group by idDostawcy

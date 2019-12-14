@@ -31,15 +31,38 @@
   </div>
   <div class="srodkowy">
     <h3>Cena wybranego artykulu w promocji</h3>
-    <form method="post" action="1.php">
+    <form method="post" action="">
       <select name="wybor">
         <option value="Gumka do mazania">Gumka do mazania</option>
         <option value="Cienkopis">Cienkopis</option>
         <option value="Pisaki 60 szt.">Pisaki 60 szt.</option>
         <option value="Markery 4 szt.">Markery 4 szt.</option>
       </select>
-    <input type="submit" value="WYBIERZ">
+    <input type="submit" name="wybierz" value="WYBIERZ">
     </form>
+
+    <?php
+        $con=mysqli_connect("localhost","root","","sklep");
+        mysqli_query($con, "SET CHARSET utf8");
+    @$ww=$_POST["wybierz"];
+    echo $ww;
+    if("WYBIERZ"==$ww){
+      $w=$_POST["wybor"];
+      echo "zmienna: ".$w;
+
+        //     $sql="SELECT cena FROM towary WHERE nazwa LIKE Cienkopis";
+        //       $result=mysqli_query($con,$sql);
+        //       {
+        //        $i=1;
+        //          while($row=mysqli_fetch_array($result))
+        //          {
+        //          echo "<ul><li>".$row['nazwa']."</li></ul>";
+        //         $i++;
+        //       }
+        //     }
+        //  mysqli_close($con);
+    }
+    ?>
     
   </div>
   <div class="prawy">
