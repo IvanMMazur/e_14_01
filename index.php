@@ -63,15 +63,5 @@
   <div class="stopka">
     <h4>Autor strony 11223344555</h4>
   </div>
-<!-- //скрипты не сделаны и не подсоеденены -->
-<?php
-$con=mysqli_connect("localhost","root","","sklep");
-  if (mysqli_connect_errno()) {
-      echo "FALSE".mysqli_error();
-  } else {
-    echo ("SELECT database_id");
-  }
-mysqli_close($con);
-?>
 </body>
 </html>
