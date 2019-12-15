@@ -14,6 +14,7 @@
     <ul>
     <?php 
       $con=mysqli_connect("localhost","root","","sklep");
+        /**print_r($con); проверка подключения с базой данных*/
         mysqli_query($con, "SET CHARSET utf8");
          $sql="SELECT * FROM `towary` WHERE `promocja`=1";
           $result=mysqli_query($con,$sql);
@@ -21,7 +22,7 @@
            $i=1;
            while($row=mysqli_fetch_array($result))
            {
-            echo "<li>".$row['nazwa']."</<li>";
+            echo "<li>".$row['nazwa']."</li>";
             $i++;
            }
          }
@@ -42,26 +43,15 @@
     </form>
 
     <?php
-        $con=mysqli_connect("localhost","root","","sklep");
-        mysqli_query($con, "SET CHARSET utf8");
-    @$ww=$_POST["wybierz"];
-    echo $ww;
-    if("WYBIERZ"==$ww){
-      $w=$_POST["wybor"];
-      echo "zmienna: ".$w;
-
-        //     $sql="SELECT cena FROM towary WHERE nazwa LIKE Cienkopis";
-        //       $result=mysqli_query($con,$sql);
-        //       {
-        //        $i=1;
-        //          while($row=mysqli_fetch_array($result))
-        //          {
-        //          echo "<ul><li>".$row['nazwa']."</li></ul>";
-        //         $i++;
-        //       }
-        //     }
-        //  mysqli_close($con);
-    }
+      if(!empty($_POST['wybor'])){
+      $sql = "SELECT (cena*0.85) as cena FROM towary WHERE nazwa LIKE '{$_POST['wybor']}'  ";
+      $con=mysqli_connect("localhost","root","","sklep");
+      $resoult=mysqli_query($con,$sql);
+        while ($record = $resoult->fetch_object()) {
+          $cp = round($record->cena*100)/100;
+          echo("<div class=\"ii\">Uwaga, cena w promocji wynosi, dzis {$cp} zlotych<bold>!!!</bold></div>");
+        }
+      }
     ?>
     
   </div>
